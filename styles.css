@@ -1,0 +1,98 @@
+/* Allgemeines Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inherit', sans-serif;
+    background-color: #121212;
+    color: #e0e0e0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    padding: 20px;
+}
+
+h1 {
+    color: #bb86fc;
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+/* Container für die Wunschliste */
+.wunschliste-container {
+    width: 100%;
+    max-width: 800px;
+    background-color: #1f1f1f;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Wunschliste Styling */
+.wunschliste {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Einzelne Listeneinträge */
+.wunschliste-item {
+    display: flex;
+    align-items: center;
+    background-color: #333333;
+    margin: 12px 0;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* Hover-Effekt für Listeneinträge */
+.wunschliste-item:hover {
+    background-color: #444444;
+}
+
+/* Bild Styling */
+.wunschliste-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 15px;
+}
+
+/* Textbereich Styling */
+.wunschliste-item .text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: calc(100% - 120px); /* Sicherstellen, dass Textbereich den Rest des Platzes einnimmt */
+}
+
+/* Name des Produkts */
+.wunschliste-item .text .name {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #bb86fc;
+}
+
+/* Preis des Produkts */
+.wunschliste-item .text .price {
+    color: #ffab00; /* Material You Akzentfarbe für den Preis */
+    font-size: 1rem;
+    margin-top: 5px;
+}
+
+/* Media Query für kleinere Bildschirme */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+    .wunschliste-container {
+        padding: 15px;
+    }
+}
