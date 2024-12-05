@@ -1,3 +1,12 @@
+document.addEventListener("DOMContentLoaded", () => {
+    const loadingScreen = document.getElementById("loading-screen");
+  
+    // Test: Loading Screen für 3 Sekunden anzeigen
+    setTimeout(() => {
+      loadingScreen.style.display = "none";
+    }, 1500); // Nach 3 Sekunden ausblenden
+  });
+
 // Funktion, um die Wunschliste von der externen JSON-Datei zu laden
 function ladeWunschliste() {
     fetch('wunschliste.json') // Hier wird die JSON-Datei geladen
