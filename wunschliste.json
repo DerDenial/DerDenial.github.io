@@ -19,5 +19,12 @@
         "preis": "25,90 €",
         "bild": "https://productimages.etrusted.com/products/prt-9d742f2b-4f21-edd0-16f9-0ce27c999e86/3/original.jpg",
         "url": "https://amzn.eu/d/0UZQSWh"
+    },
+    {
+        "name": "Mini Computer | Raspberry Pi 5 (4GB)",
+        "beschreibung": "Der Zero W ist ganz cool aber der hat zu wenig power",
+        "preis": "63,90€",
+        "bild": "https://www.berrybase.de/thumbnail/23/63/4c/1722543506/RaspberryPi54GBRAM-230061_1920x1920.jpg?ts=1724768070",
+        "url": "https://www.berrybase.de/raspberry-pi-5-4gb-ram"
     }
 ]
