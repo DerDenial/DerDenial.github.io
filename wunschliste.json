@@ -1,19 +1,5 @@
 [
     {
-        "name": "ZWEI STÜCK DAVON -> NZXT F140 RGB Core",
-        "beschreibung": "Brauche noch 2 große lüfter für unten",
-        "preis": "44,00 €",
-        "bild": "https://m.media-amazon.com/images/I/51dYwbuFI1L._AC_SL1000_.jpg",
-        "url": "https://amzn.eu/d/hQpeCDD"
-    },
-    {
-        "name": "Mehr lüfter | NZXT F120 RGB Core Dreierpackung",
-        "beschreibung": "Wenn die leuchten, kühlen die besser",
-        "preis": "55,90 €",
-        "bild": "https://m.media-amazon.com/images/I/51Zs6pQRysL._AC_SL1000_.jpg",
-        "url": "https://amzn.eu/d/7LJty27"
-    },
-    {
         "name": "Fan Controller | NZXT Control Hub",
         "beschreibung": "Irgendwie muss ich die ja steuern können",
         "preis": "49,99 €",
