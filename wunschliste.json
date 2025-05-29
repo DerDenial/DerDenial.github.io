@@ -12,5 +12,34 @@
         "preis": "31,99 €",
         "bild": "https://m.media-amazon.com/images/I/51W2DRZ2HmL._AC_SL1011_.jpg",
         "url": "https://amzn.eu/d/bGrQSo9"
+    },
+    {
+        "name": "Rabanne Invictus | Eau de Toilette",
+        "beschreibung": "Mein Lieblingsduft",
+        "preis": "55,06 €",
+        "bild": "https://cdn.flaconi.net/media/catalog/product/3/3/3349668515660_c.jpg?r=1TSFNY&c=de&w=1019&fl=progressive&fit=scale&q=80&f=webp",
+        "url": "https://www.flaconi.de/parfum/rabanne/invictus/rabanne-invictus-eau-de-toilette.html?variant=20170262&channel=shopping&gvc=10f4aeb9-ec2f-45df-8c3e-3460ba9aa18d&gQT=2"
+    },
+    {
+        "name": "Azzaro The Most Wannted Intense | Eau de Parfum",
+        "beschreibung": "Mein Lieblingsduft 2",
+        "preis": "60,64 €",
+        "bild": "https://cdn.flaconi.net/media/catalog/product/3/6/3614273521307.jpeg?r=1TUOPg&c=de&w=1019&fl=progressive&fit=scale&q=80&f=webp",
+        "url": "https://www.flaconi.de/parfum/azzaro/the-most-wanted/azzaro-the-most-wanted-intense-eau-de-parfum.html?variant=80057915-100"
+    },
+    {
+        "name": "Yves Saint Laurent MYSLF Le Parfum | Eau de Parfum",
+        "beschreibung": "Mein Lieblingsduft 3",
+        "preis": "60,64 €",
+        "bild": "https://cdn.flaconi.de/media/catalog/product/3/6/3614274114669.jpg?r=1SuqvT&w=1019&fl=progressive&fit=scale&q=80&f=webp",
+        "url": "https://www.flaconi.de/parfum/yves-saint-laurent/myslf/yves-saint-laurent-myslf-le-parfum-parfum.html?variant=90007144-0010878"
+    },
+    {
+        "name": "Versace Eros Flame | Eau de Parfum",
+        "beschreibung": "Mein Lieblingsduft 4",
+        "preis": "66,93 €",
+        "bild": "https://cdn.flaconi.de/media/catalog/product/v/e/versace-eros-flame-eau-de-parfum-30-ml-8011003845330.jpg?w=1019&fl=progressive&fit=scale&q=80&f=webp",
+        "url": "https://www.flaconi.de/parfum/versace/eros/versace-eros-flame-eau-de-parfum.html?variant=80034659-30"
     }
+
 ]
