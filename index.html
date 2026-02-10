@@ -1,28 +1,82 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="https://em-content.zobj.net/source/apple/391/high-voltage_26a1.png" type="image/png">
-    <title>Wunschliste</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🎁 Wunschliste</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script>
+    // Darkmode sofort anwenden, falls aktiviert
+    (function() {
+      if (localStorage.getItem("darkmode") === "true") {
+        document.documentElement.classList.add("darkmode");
+      }
+    })();
+  </script>
 </head>
 <body>
-    <div id="loading-screen">
-        <div class="spinner"></div>
-    </div>
+  <div id="overlay"></div>
 
-    <h1>Meine Wunschliste</h1>
+  <!-- Header -->
+  <header>
+    <div class="header-container">
+      <h1>🎁 Wunschliste</h1>
+    </div>
+  </header>
+
+  <!-- Sidebar -->
+  <aside id="sidebar">
+    <span class="sidebar-close" id="sidebarClose">&times;</span>
     
-    <div class="wunschliste-container">
-        <ul class="wunschliste" id="wunschliste">
-            <!-- Wunschliste-Items werden hier eingefügt -->
-        </ul>
+    <div class="darkmode-container">
+      <label class="toggle">
+        <input type="checkbox" id="darkModeToggle">
+        <span class="track"><span class="thumb"></span></span>
+      </label>
     </div>
 
-    <script src="script.js"></script>
+    <div class="filter">
+      <h3>Kategorie</h3>
+      <select id="categoryFilter">
+        <option value="all">Alle</option>
+        <option value="technik">Technik</option>
+        <option value="parfum">Parfum</option>
+        <option value="schmuck">Schmuck</option>
+      </select>
+    </div>
+  </aside>
+
+  <!-- Wunschliste -->
+  <main>
+    <ul id="wishlist"></ul>
+  </main>
+
+  <!-- Preview Modal -->
+  <div id="previewModal" class="modal" aria-hidden="true">
+    <div class="modal-content">
+      <button class="close-modal" id="closeModal" aria-label="Schließen">×</button>
+
+      <div class="modal-left">
+        <img id="previewImg" src="" alt="">
+      </div>
+
+      <div class="modal-right">
+        <h2 id="previewName"></h2>
+        <p id="previewPrice"></p>
+        <div id="previewNeed" class="stars"></div>
+        <p id="previewComment" class="comment-text"></p>
+
+        <div class="modal-buttons">
+          <a id="orderButton" href="#" target="_blank" class="btn order">🛒 Bestellen</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAB -->
+  <button class="fab" id="fab"><span class="fab-icon"></span></button>
+
+  <script src="script.js"></script>
 </body>
 </html>
