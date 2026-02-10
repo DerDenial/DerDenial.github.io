@@ -1,0 +1,52 @@
+[
+  {
+    "name": "Arm Sleeve",
+    "link": "https://amzn.eu/d/03GqEGJ4",
+    "image": "https://m.media-amazon.com/images/I/41Xe9kZCRLL._AC_SX679_.jpg",
+    "status": "",
+    "category": "Technik",
+    "price": "20,69€",
+    "need": "4",
+    "comment": "GRÖßE L !!!!!!"
+  },
+  {
+    "name": "Maus Füße",
+    "link": "https://amzn.eu/d/03kw99Z8",
+    "image": "https://m.media-amazon.com/images/I/71I9eNhjNXL._AC_SL1500_.jpg",
+    "status": "",
+    "category": "Technik",
+    "price": "16,49€",
+    "need": "4",
+    "comment": ""
+  },
+  {
+    "name": "NEWERA CAP",
+    "link": "https://amzn.eu/d/04OZFdxq",
+    "image": "https://m.media-amazon.com/images/I/61tmnBRt96L._AC_SY741_.jpg",
+    "status": "",
+    "category": "Schmuck",
+    "price": "22,90€",
+    "need": 3,
+    "comment": ""
+  },
+  {
+    "name": "Trucker Cap",
+    "link": "https://amzn.eu/d/0h1zdzUT",
+    "image": "https://m.media-amazon.com/images/I/51O9H62qEAL._AC_SX679_.jpg",
+    "status": "",
+    "category": "Schmuck",
+    "price": "31,90€",
+    "need": 3,
+    "comment": ""
+  },
+  {
+    "name": "Crossbody-Tasche",
+    "link": "https://www.nike.com/de/t/sportswear-essentials-crossbody-tasche-wXRW87/HJ8377-010",
+    "image": "https://static.nike.com/a/images/t_web_pdp_535_v2/f_auto,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/39ec939b-f8b1-480f-a726-a0348a8c3967/NK+NSW+ESS+CRSSBDY-AIRMAX+SP25.png",
+    "status": "",
+    "category": "Schmuck",
+    "price": "24,99€",
+    "need": "4",
+    "comment": ""
+  }
+]
