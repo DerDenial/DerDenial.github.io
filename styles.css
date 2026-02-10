@@ -1,249 +1,452 @@
-/* Allgemeines Styling */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* ===========================================
+   🎨 Catppuccin Latte + Mocha Style
+   =========================================== */
+
+/* ☀️ Latte (Light Mode) */
+:root {
+  --bg-color: #eff1f5;
+  --text-color: #4c4f69;
+  --header-bg: linear-gradient(135deg, #e6e9ef, #dce0e8);
+  --wish-bg: #ffffff;
+  --fab-bg: #1e66f5;
+  --fab-hover: #7287fd;
+  --sidebar-bg: #ffffff;
+  --filter-bg: #e6e9ef;
+  --filter-color: #4c4f69;
+  --link-color: #1e66f5;
+  --status-color: #6c6f85;
+  --close-color: #4c4f69;
+  --filter-hover: #ccd0da;
 }
 
+/* 🌙 Mocha (Dark Mode) */
+.darkmode {
+  --bg-color: #1e1e2e;
+  --text-color: #cdd6f4;
+  --header-bg: linear-gradient(270deg, #181825, #1e1e2e, #181825);
+  --wish-bg: #313244;
+  --fab-bg: #89b4fa;
+  --fab-hover: #b4befe;
+  --sidebar-bg: #181825;
+  --filter-bg: #313244;
+  --filter-color: #cdd6f4;
+  --link-color: #89b4fa;
+  --status-color: #a6adc8;
+  --close-color: #f5c2e7;
+  --filter-hover: #45475a;
+}
+
+/* ========== Basis Styles ========== */
 body {
-    font-family: 'Montserrat', sans-serif;
-    background: linear-gradient(120deg, #181925 0%, #232526 60%, #2a2d3e 100%);
-    color: #f5f5f7;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    flex-direction: column;
-    padding: 24px;
-    letter-spacing: 0.01em;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  background: var(--bg-color);
+  color: var(--text-color);
+  transition: background 0.3s, color 0.3s;
 }
 
-/* Überschrift */
-h1 {
-    color: #bb86fc;
-    margin-bottom: 32px;
-    font-size: 2.4rem;
-    font-weight: 700;
+header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background: var(--header-bg);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+}
+
+.header-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.header-container h1 {
+  margin: 0;
+  font-weight: 600;
+  font-size: 1.6rem;
+  text-align: center;
+}
+
+/* ========== FAB (Floating Action Button) ========== */
+.fab {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: none;
+  background: var(--fab-bg);
+  color: white;
+  font-size: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  z-index: 1300;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.fab:hover {
+  transform: scale(1.05);
+  background: var(--fab-hover);
+}
+
+.fab-icon,
+.fab-icon::before,
+.fab-icon::after {
+  content: "";
+  display: block;
+  background: currentColor;
+  height: 2px;
+  width: 20px;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.fab-icon::before {
+  position: absolute;
+  top: -6px;
+  left: 0;
+}
+
+.fab-icon::after {
+  position: absolute;
+  top: 6px;
+  left: 0;
+}
+
+.fab.open .fab-icon {
+  background: transparent;
+}
+.fab.open .fab-icon::before {
+  transform: rotate(45deg) translate(4px, 4px);
+}
+.fab.open .fab-icon::after {
+  transform: rotate(-45deg) translate(4px, -4px);
+}
+
+/* ========== Overlay ========== */
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(5px);
+  background: rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+  z-index: 1100;
+}
+#overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ========== Sidebar ========== */
+aside#sidebar {
+  position: fixed;
+  top: 0;
+  right: -300px;
+  width: 260px;
+  height: 100%;
+  background: var(--sidebar-bg);
+  box-shadow: -6px 0 20px rgba(0, 0, 0, 0.3);
+  padding: 2rem 1rem;
+  transition: right 0.4s ease, background 0.3s;
+  z-index: 1200;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+aside#sidebar.open {
+  right: 0;
+}
+
+.sidebar-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  color: var(--close-color);
+  transition: color 0.3s;
+}
+.sidebar-close:hover {
+  color: var(--fab-bg);
+}
+
+/* ========== Darkmode Toggle ========== */
+.darkmode-container {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+}
+.toggle {
+  position: relative;
+  display: inline-block;
+  width: 64px;
+  height: 36px;
+}
+.toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.track {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--filter-bg);
+  border-radius: 999px;
+  transition: background 0.3s;
+  display: flex;
+  align-items: center;
+  padding: 4px;
+}
+.thumb {
+  height: 28px;
+  width: 28px;
+  border-radius: 50%;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  transition: transform 0.4s ease, background 0.3s, color 0.3s;
+  color: #333;
+}
+input:checked + .track .thumb {
+  transform: translateX(28px);
+  background: var(--fab-bg);
+  color: #fff;
+}
+input:not(:checked) + .track .thumb::before {
+  content: "🌙";
+}
+input:checked + .track .thumb::before {
+  content: "☀️";
+}
+
+/* ========== Filter ========== */
+.filter {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.filter h3 {
+  margin: 0;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--filter-color);
+}
+.filter select {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  border: none;
+  background: var(--filter-bg);
+  font-size: 0.95rem;
+  cursor: pointer;
+  appearance: none;
+  transition: all 0.3s ease;
+  color: var(--filter-color);
+}
+.filter select:hover {
+  background: var(--filter-hover);
+}
+
+/* ========== Wunschliste ========== */
+#wishlist {
+  list-style: none;
+  padding: 0;
+  margin: 1rem auto;
+  max-width: 600px;
+}
+
+.wish {
+  display: flex;
+  align-items: center;
+  background: var(--wish-bg);
+  margin: 0.5rem 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.4s, box-shadow 0.4s, opacity 0.8s;
+  opacity: 0;
+  transform: translateY(20px);
+  cursor: pointer;
+}
+.wish.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+.wish:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+.wish img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-right: 1rem;
+}
+.wish-details {
+  flex: 1;
+}
+.wish-title {
+  font-weight: 600;
+  font-size: 1rem;
+  display: block;
+  color: var(--link-color);
+}
+.status {
+  font-size: 0.9rem;
+  color: var(--status-color);
+}
+
+/* ========== Modal Vorschau ========== */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(6px);
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+.modal.active {
+  display: flex;
+}
+
+.modal-content {
+  background: var(--wish-bg);
+  color: var(--text-color);
+  border-radius: 16px;
+  max-width: 600px;
+  width: 90%;
+  display: flex;
+  gap: 1rem;
+  padding: 1.5rem;
+  position: relative;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  animation: fadeInScale 0.3s ease;
+}
+@keyframes fadeInScale {
+  from {
     opacity: 0;
-    transform: translateY(-24px) scale(0.98);
-    animation: fadeIn 1.1s cubic-bezier(0.22, 1, 0.36, 1) 0.2s forwards;
-    text-shadow: 0 2px 16px #bb86fc33, 0 1px 2px #0008;
-    letter-spacing: 0.04em;
-}
-
-@keyframes fadeIn {
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-}
-
-/* Container für die Wunschliste */
-.wunschliste-container {
-    width: 100%;
-    max-width: 820px;
-    background: rgba(28, 28, 38, 0.98);
-    border-radius: 22px;
-    padding: 38px 32px;
-    box-shadow: 0 16px 48px 0 #000a, 0 2px 8px #bb86fc22;
-    backdrop-filter: blur(3px);
-    opacity: 0;
-    transform: scale(0.97);
-    animation: containerAppearModern 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.1s forwards;
-}
-
-@keyframes containerAppearModern {
-    0% {
-        opacity: 0;
-        transform: scale(0.96) translateY(32px);
-        filter: blur(6px);
-        box-shadow: 0 2px 8px 0 #000a, 0 1px 2px #bb86fc11;
-    }
-    70% {
-        opacity: 1;
-        transform: scale(1.02) translateY(-6px);
-        filter: blur(0.5px);
-        box-shadow: 0 16px 48px 0 #000a, 0 2px 8px #bb86fc22;
-    }
-    100% {
-        opacity: 1;
-        transform: scale(1) translateY(0);
-        filter: blur(0);
-        box-shadow: 0 16px 48px 0 #000a, 0 2px 8px #bb86fc22;
-    }
-}
-
-/* Wunschliste Styling */
-.wunschliste {
-    list-style-type: none;
-    padding: 0;
-}
-
-/* Einzelne Listeneinträge */
-.wunschliste-item {
-    display: flex;
-    align-items: center;
-    background: linear-gradient(100deg, #23243a 60%, #181925 100%);
-    border-radius: 16px;
-    box-shadow: 0 4px 24px #bb86fc11, 0 1.5px 4px #0006;
-    margin: 22px 0;
-    padding: 26px 24px;
-    transition: box-shadow 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
-                transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                background 0.3s;
-    opacity: 0;
-    transform: translateY(32px) scale(0.96);
-    border: 1.5px solid #23243a;
-    position: relative;
-    overflow: hidden;
-}
-
-@keyframes blurIn {
-    from {
-        opacity: 0;
-        filter: blur(8px);
-    }
-    to {
-        opacity: 1;
-        filter: blur(0);
-    }
-}
-
-.wunschliste-item.visible {
-    animation: blurIn 0.6s cubic-bezier(0.33,1,0.68,1) forwards;
-}
-
-/* Hover-Effekt für Listeneinträge */
-.wunschliste-item:hover {
-    background: linear-gradient(100deg, #2d2e4a 60%, #23243a 100%);
-    transform: translateY(-8px) scale(1.025);
-    box-shadow: 0 16px 48px #bb86fc33, 0 2px 8px #000a;
-    border: 1.5px solid #bb86fc55;
-}
-
-/* Glow-Overlay beim Hover */
-.wunschliste-item::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    border-radius: 16px;
-    box-shadow: 0 0 32px 8px #bb86fc22;
-    opacity: 0;
-    transition: opacity 0.3s;
-}
-.wunschliste-item:hover::after {
+    transform: scale(0.9);
+  }
+  to {
     opacity: 1;
+    transform: scale(1);
+  }
 }
 
-/* Bild Styling */
-.wunschliste-item img {
-    width: 88px;
-    height: 88px;
-    object-fit: cover;
-    border-radius: 50%;
-    margin-right: 28px;
-    box-shadow: 0 2px 12px #bb86fc22, 0 1px 2px #0008;
-    border: 2.5px solid #23243a;
-    background: #23243a;
-    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s;
+.close-modal {
+  position: absolute;
+  top: 0.8rem;
+  right: 0.8rem;
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--close-color);
+  font-size: 1.6rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s, background 0.3s;
+  z-index: 10;
+}
+.close-modal:hover {
+  color: var(--fab-bg);
+  background: rgba(255, 255, 255, 0.1);
 }
 
-.wunschliste-item:hover img {
-    transform: scale(1.09) rotateZ(-2deg);
-    box-shadow: 0 6px 18px #bb86fc44;
+.modal-left img {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 10px;
 }
 
-/* Textbereich Styling */
-.wunschliste-item .text {
-    display: flex;
+.modal-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.modal-right h2 {
+  margin: 0;
+  text-align: center;
+}
+
+.stars {
+  font-size: 1.4rem;
+  text-align: center;
+  color: #f5c2e7;
+  letter-spacing: 2px;
+}
+
+.comment-text {
+  background: var(--filter-bg);
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  font-style: italic;
+  color: var(--status-color);
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.btn {
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s, transform 0.2s;
+}
+.btn.order {
+  background: var(--fab-bg);
+  color: #fff;
+}
+.btn.order:hover {
+  background: var(--fab-hover);
+  transform: scale(1.05);
+}
+
+/* ========== Mobile Optimierung ========== */
+@media (max-width: 480px) {
+  .modal-content {
     flex-direction: column;
-    justify-content: space-between;
-    width: calc(100% - 120px);
-    gap: 8px;
-}
-
-/* Name des Produkts */
-.wunschliste-item .text .name {
-    font-weight: 700;
-    font-size: 1.25rem;
-    color: #bb86fc;
-    margin-bottom: 2px;
-    text-shadow: 0 1px 4px #23252644;
-    letter-spacing: 0.02em;
-}
-
-/* Beschreibung */
-.wunschliste-item .text .beschreibung {
-    font-size: 1.05rem;
-    opacity: 0.85;
-    color: #e0e0e0;
-    margin-bottom: 4px;
-    line-height: 1.5;
-}
-
-/* Preis des Produkts */
-.wunschliste-item .text .price {
-    color: #ffab00;
-    font-size: 1.08rem;
-    font-weight: 600;
-    letter-spacing: 0.01em;
-    text-shadow: 0 1px 4px #23252633;
-}
-
-/* Media Query für kleinere Bildschirme */
-@media (max-width: 768px) {
-    h1 {
-        font-size: 1.3rem;
-    }
-    .wunschliste-container {
-        padding: 12px 4px;
-    }
-    .wunschliste-item {
-        flex-direction: column;
-        text-align: center;
-        padding: 16px 8px;
-    }
-    .wunschliste-item img {
-        width: 64px;
-        height: 64px;
-        margin-right: 0;
-        margin-bottom: 10px;
-    }
-    .wunschliste-item .text {
-        width: 100%;
-    }
-}
-
-/* Loading Screen Overlay */
-#loading-screen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(28, 28, 38, 0.98);
-    display: flex;
-    justify-content: center;
     align-items: center;
-    z-index: 1000;
-    transition: opacity 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
-    backdrop-filter: blur(3px);
-}
-  
-/* Spinner Design */
-.spinner {
-    border: 7px solid rgba(187, 134, 252, 0.13);
-    border-top: 7px solid #bb86fc;
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    animation: spin 1.1s cubic-bezier(0.5, 0.1, 0.1, 0.9) infinite;
-    box-shadow: 0 2px 12px #bb86fc33;
-}
-  
-/* Spinner Animation */
-@keyframes spin {
-    0% { transform: rotate(0deg) scale(0.95);}
-    100% { transform: rotate(720deg) scale(1);}
+    text-align: center;
+  }
+  .modal-left img {
+    width: 120px;
+    height: 120px;
+  }
 }
